@@ -203,15 +203,15 @@ const E=[['Ingeniería en Sistemas','Estudiante · Matrícula 24-misn-8-020','Fo
 document.getElementById('exp').innerHTML=E.map(x=>`<div class="col-md-6 col-lg-4"><div class="card-cy"><h3 class="h5">💼 ${x[0]}</h3><p class="mb-1" style="color:var(--yel)">${x[1]}</p><p>${x[2]}</p></div></div>`).join('');
 
 /* Footer social */
-document.getElementById('soc').innerHTML=[['Instagram','fa-brands fa-instagram','https://www.instagram.com/yu___or_/'],['YouTube','fa-brands fa-youtube','https://www.youtube.com/@ingyunior'],['GitHub','fa-brands fa-github','https://github.com/ing27348-creador/ing27348-creador'],['WhatsApp','fa-brands fa-whatsapp','https://wa.me/18099179974'],['Teléfono','fa-solid fa-phone','tel:+18099179974'],['Correo','fa-solid fa-envelope','mailto:ing27348@gmail.com']].map(s=>`<a class="soc" href="${s[2]}" target="_blank" rel="noopener" aria-label="${s[0]}"><i class="${s[1]}"></i></a>`).join('');
+document.getElementById('soc').innerHTML=[['Instagram','fa-brands fa-instagram','https://www.instagram.com/yu___or_/'],['YouTube','fa-brands fa-youtube','https://www.youtube.com/@ingyunior'],['GitHub','fa-brands fa-github','https://github.com/ing27348-creator/ing27348-creador'],['WhatsApp','fa-brands fa-whatsapp','https://wa.me/18099179974'],['Teléfono','fa-solid fa-phone','tel:+18099179974'],['Correo','fa-solid fa-envelope','mailto:ing27348@gmail.com']].map(s=>`<a class="soc" href="${s[2]}" target="_blank" rel="noopener" aria-label="${s[0]}"><i class="${s[1]}"></i></a>`).join('');
 
 /* Formulario EmailJS: pega tus claves (emailjs.com). La plantilla define el correo de destino. */
-const EJS={pub:'TU_PUBLIC_KEY',service:'TU_SERVICE_ID',tpl:'TU_TEMPLATE_ID'};
+const EJS={pub:'Zryrhy-uf4_m5qIg-',service:'service_2vehgco',tpl:'template_gc0u1vy'};
 emailjs.init({publicKey:EJS.pub});
 document.getElementById('cf').addEventListener('submit',e=>{e.preventDefault();const f=e.target,s=document.getElementById('status');
   if(!f.checkValidity()){s.textContent='⚠️ Completa todos los campos con un correo válido.';return}
   s.textContent='⏳ Enviando…';
-  emailjs.sendForm(EJS.service,EJS.tpl,f).then(()=>{s.textContent='✅ Mensaje enviado correctamente';f.reset()},()=>{s.textContent='❌ No se pudo enviar. Revisa tus claves de EmailJS.'})});
+  emailjs.send(EJS.service,EJS.tpl,{name:f.from_name.value,email:f.reply_to.value,title:'Nuevo mensaje del portafolio',time:new Date().toLocaleString('es-DO'),message:'Teléfono: '+f.phone.value+'\n\n'+f.message.value}).then(()=>{s.textContent='✅ Mensaje enviado correctamente';f.reset()},()=>{s.textContent='❌ No se pudo enviar. Revisa tus claves de EmailJS.'})});
 </script>
 </body>
 </html>
